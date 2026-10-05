@@ -1,0 +1,14 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+parameters:
+    level: 5
+    paths:
+        - src
+
+    ignoreErrors:
+        -
+            message: '#expects view-string(\|null)?, string given#'
+            identifier: argument.type
+        -
+            message: '#Call to an undefined method Illuminate\\Contracts\\Auth\\Authenticatable::hasPermissionTo\(\)#'
+            identifier: method.notFound

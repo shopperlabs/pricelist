@@ -1,0 +1,93 @@
+{
+  "name": "shopper/pricelist",
+  "description": "Price lists for Shopper: sale and override prices targeted by customer groups, time windows and quantity tiers",
+  "license": "MIT",
+  "keywords": [
+    "e-commerce",
+    "price-list",
+    "pricing",
+    "b2b",
+    "Laravel",
+    "shopper"
+  ],
+  "authors": [
+    {
+      "name": "Arthur Monney",
+      "email": "monneylobe@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/shopperlabs/pricelist/issues",
+    "source": "https://github.com/shopperlabs/pricelist"
+  },
+  "require": {
+    "php": "^8.3",
+    "filament/filament": "^5.8",
+    "illuminate/bus": "^12.68|^13.27",
+    "illuminate/cache": "^12.68|^13.27",
+    "illuminate/console": "^12.68|^13.27",
+    "illuminate/contracts": "^12.68|^13.27",
+    "illuminate/database": "^12.68|^13.27",
+    "illuminate/events": "^12.68|^13.27",
+    "illuminate/filesystem": "^12.68|^13.27",
+    "illuminate/queue": "^12.68|^13.27",
+    "illuminate/routing": "^12.68|^13.27",
+    "illuminate/support": "^12.68|^13.27",
+    "laravel/prompts": "^0.3.16",
+    "livewire/livewire": "^4.1",
+    "shopper/core": "^3.0.0-rc.3",
+    "shopper/framework": "^3.0.0-rc.3",
+    "shopper/sidebar": "^3.0.0-rc.3",
+    "spatie/laravel-package-tools": "^1.15"
+  },
+  "require-dev": {
+    "larastan/larastan": "^3.10",
+    "laravel/pint": "^1.29",
+    "mockery/mockery": "^1.6",
+    "nunomaduro/collision": "^8.6",
+    "orchestra/testbench": "^10.0|^11.0",
+    "pestphp/pest": "^4.4",
+    "pestphp/pest-plugin-laravel": "^4.1",
+    "pestphp/pest-plugin-livewire": "^4.0",
+    "shopper/cart": "^3.0.0-rc.3",
+    "shopper/customer-groups": "^1.0",
+    "shopper/payment": "^3.0.0-rc.3",
+    "shopper/shipping": "^3.0.0-rc.3"
+  },
+  "suggest": {
+    "shopper/customer-groups": "Target price lists at specific customer groups"
+  },
+  "autoload": {
+    "psr-4": {
+      "Shopper\\PriceList\\": "src/",
+      "Shopper\\PriceList\\Database\\Factories\\": "database/factories/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Shopper\\PriceList\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "lint": "pint",
+    "test": "pest --colors=always --parallel",
+    "test:lint": "pint --test",
+    "test:types": "phpstan analyse --ansi --memory-limit=-1"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Shopper\\PriceList\\PriceListServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
