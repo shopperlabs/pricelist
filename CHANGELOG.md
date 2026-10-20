@@ -2,6 +2,14 @@
 
 All notable changes to `shopper/pricelist` will be documented in this file.
 
+## v1.0.1 - 2026-10-20
+
+### Chores
+
+* chore(deps): require `shopper/framework` only, which already pulls `shopper/core`, `shopper/sidebar`, `shopper/cart`, `shopper/payment` and `shopper/shipping` at the same version, so installed versions do not change by @mckenziearts in [#1](https://github.com/shopperlabs/pricelist/pull/1)
+
+**Full Changelog**: https://github.com/shopperlabs/pricelist/compare/v1.0.0...v1.0.1
+
 ## v1.0.0 - 2026-10-05
 
 > [!IMPORTANT]
@@ -15,10 +23,12 @@ Shopper 3 is still a release candidate, so your application needs:
 "minimum-stability": "RC",
 "prefer-stable": true
 
+
 ```
 ```bash
 composer require shopper/pricelist
 php artisan shopper:pricelist:install
+
 
 ```
 The install command runs the migrations, indexes and records the current public prices, then registers the add-on in `AppServiceProvider`. To register it by hand:
@@ -30,6 +40,7 @@ use Shopper\PriceList\PriceListAddon;
 Shopper::addons([
     new PriceListAddon,
 ]);
+
 
 ```
 The add-on schedules `shopper:pricelist:record-prices` every minute and syncs prices through queued jobs: keep the scheduler and a queue worker running.
