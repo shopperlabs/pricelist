@@ -768,22 +768,19 @@ class PriceListPrices extends AbstractPageComponent implements HasActions, HasSc
             return [];
         }
 
-        return $this->priceList->prices()
+        $prices = $this->priceList->prices()
             ->where(fn (Builder $query) => PriceListLookup::wherePriceables($query, array_values($priceables)))
             ->with('currency')
             ->orderBy('min_quantity')
-            ->get()
-            ->groupBy([
-                fn (PriceListPrice $price): string => $this->keyFor($price->priceable_type, $price->priceable_id),
-                fn (PriceListPrice $price): string => $price->currency->code,
-            ])
-            ->map(fn (SupportCollection $codes): array => $codes
-                ->map(fn (SupportCollection $prices): array => $prices
-                    ->map(fn (PriceListPrice $price): array => $this->tier($price->min_quantity, $price->max_quantity, $price->amount, $price->compare_amount))
-                    ->values()
-                    ->all())
-                ->all())
-            ->all();
+            ->get();
+
+        $ladders = [];
+
+        foreach ($prices as $price) {
+            $ladders[$this->keyFor($price->priceable_type, $price->priceable_id)][$price->currency->code][] = $this->tier($price->min_quantity, $price->max_quantity, $price->amount, $price->compare_amount);
+        }
+
+        return $ladders;
     }
 
     /**

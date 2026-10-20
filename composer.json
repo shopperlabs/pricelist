@@ -36,9 +36,7 @@
     "illuminate/support": "^12.68|^13.27",
     "laravel/prompts": "^0.3.16",
     "livewire/livewire": "^4.1",
-    "shopper/core": "^3.0.0-rc.3",
     "shopper/framework": "^3.0.0-rc.3",
-    "shopper/sidebar": "^3.0.0-rc.3",
     "spatie/laravel-package-tools": "^1.15"
   },
   "require-dev": {
@@ -50,10 +48,7 @@
     "pestphp/pest": "^4.4",
     "pestphp/pest-plugin-laravel": "^4.1",
     "pestphp/pest-plugin-livewire": "^4.0",
-    "shopper/cart": "^3.0.0-rc.3",
-    "shopper/customer-groups": "^1.0",
-    "shopper/payment": "^3.0.0-rc.3",
-    "shopper/shipping": "^3.0.0-rc.3"
+    "shopper/customer-groups": "^1.0"
   },
   "suggest": {
     "shopper/customer-groups": "Target price lists at specific customer groups"
