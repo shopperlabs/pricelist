@@ -36,7 +36,7 @@
     "illuminate/support": "^12.68|^13.27",
     "laravel/prompts": "^0.3.16",
     "livewire/livewire": "^4.1",
-    "shopper/framework": "^3.0.0-rc.3",
+    "shopper/framework": "^3.0.0-rc.4",
     "spatie/laravel-package-tools": "^1.15"
   },
   "require-dev": {
